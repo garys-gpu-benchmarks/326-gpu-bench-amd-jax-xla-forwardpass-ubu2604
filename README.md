@@ -85,7 +85,7 @@ Three operator scripts from [`garys-gpu-benchmarks/gpu-bench-suite`](https://git
 
 ## 1. Overview
 
-Runs gpu-bench-jax-xla-forwardpass.py (the same script as 226/426): a small JAX/XLA transformer forward pass on synthetic tokens. dtype, sequence_len, hidden_size, num_layers, num_heads, batch_size, warmup_iters, num_iterations, seed, and vocab_size (32000, as 226/426) come from yaml. The collector runs two passes plus a summary row. output_format: csv Sweep dimensions: device_id, dtype, sequence_len, hidden_size, num_layers, num_heads, batch_size, warmup_iters.
+Runs gpu-bench-jax-xla-forwardpass.py (the same script as 226/426): a small JAX/XLA transformer forward pass on synthetic tokens. dtype, sequence_len, hidden_size, num_layers, num_heads, batch_size, warmup_iters, num_iterations, seed, and vocab_size (32000, as 226/426) come from yaml. The collector runs two passes plus a summary row. output_format: csv Sweep dimensions: device_id, dtype, sequence_len, hidden_size, num_layers, num_heads, vocab_size, batch_size.
 
 ## 2. What It Validates
 

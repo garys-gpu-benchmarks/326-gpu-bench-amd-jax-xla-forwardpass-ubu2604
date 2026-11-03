@@ -29,6 +29,7 @@ sweep:
     smoke: 4
     baseline: 8
     extended: 8
+  vocab_size: 32000
   batch_size:
     smoke: 1
     baseline: 8
@@ -42,4 +43,3 @@ sweep:
     baseline: 2630000
     extended: 7180000
   seed: 42
-  vocab_size: 32000

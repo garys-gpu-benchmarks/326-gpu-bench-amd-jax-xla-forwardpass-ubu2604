@@ -2,7 +2,7 @@
 
 ## Execution Description
 
-Runs gpu-bench-jax-xla-forwardpass.py (the same script as 226/426): a small JAX/XLA transformer forward pass on synthetic tokens. dtype, sequence_len, hidden_size, num_layers, num_heads, batch_size, warmup_iters, num_iterations, seed, and vocab_size (32000, as 226/426) come from yaml. The collector runs two passes plus a summary row. output_format: csv Sweep dimensions: device_id, dtype, sequence_len, hidden_size, num_layers, num_heads, batch_size, warmup_iters.
+Runs gpu-bench-jax-xla-forwardpass.py (the same script as 226/426): a small JAX/XLA transformer forward pass on synthetic tokens. dtype, sequence_len, hidden_size, num_layers, num_heads, batch_size, warmup_iters, num_iterations, seed, and vocab_size (32000, as 226/426) come from yaml. The collector runs two passes plus a summary row. output_format: csv Sweep dimensions: device_id, dtype, sequence_len, hidden_size, num_layers, num_heads, vocab_size, batch_size.
 
 ## Parameters
 
@@ -14,11 +14,11 @@ Runs gpu-bench-jax-xla-forwardpass.py (the same script as 226/426): a small JAX/
 | hidden_size | `--hidden-size` | smoke=64, baseline=512, extended=512 | 512 | From Parameter list; see Execution Description With Parameters. |
 | num_layers | `--num-layers` | smoke=1, baseline=4, extended=4 | 4 | From Parameter list; see Execution Description With Parameters. |
 | num_heads | `--num-heads` | smoke=4, baseline=8, extended=8 | 8 | From Parameter list; see Execution Description With Parameters. |
+| vocab_size | `--vocab-size` | smoke=32000, baseline=32000, extended=32000 | 32000 | From Parameter list; see Execution Description With Parameters. |
 | batch_size | `--batch-size` | smoke=1, baseline=8, extended=8 | 8 | From Parameter list; see Execution Description With Parameters. |
 | warmup_iters | `--warmup-iters` | smoke=1, baseline=3, extended=5 | 3 | From Parameter list; see Execution Description With Parameters. |
 | num_iterations | `--num-iterations` | smoke=3, baseline=2630000, extended=7180000 | 2630000 | From Parameter list; see Execution Description With Parameters. |
 | seed | `--seed` | smoke=42, baseline=42, extended=42 | 42 | From Parameter list; see Execution Description With Parameters. |
-| vocab_size | `--vocab-size` | smoke=32000, baseline=32000, extended=32000 | 32000 | From Parameter list; see Execution Description With Parameters. |
 
 ## Invocation
 

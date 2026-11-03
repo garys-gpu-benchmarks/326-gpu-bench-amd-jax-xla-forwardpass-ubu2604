@@ -51,11 +51,11 @@ Workload options:
   --hidden-size <value>            Override hidden_size
   --num-layers <value>            Override num_layers
   --num-heads <value>            Override num_heads
+  --vocab-size <value>            Override vocab_size
   --batch-size <value>            Override batch_size
   --warmup-iters <value>            Override warmup_iters
   --num-iterations <value>            Override num_iterations
   --seed <value>            Override seed
-  --vocab-size <value>            Override vocab_size
 
 Information:
   --specification               Print this workload's specification and exit
@@ -95,11 +95,11 @@ SEQUENCE_LEN=""
 HIDDEN_SIZE=""
 NUM_LAYERS=""
 NUM_HEADS=""
+VOCAB_SIZE=""
 BATCH_SIZE=""
 WARMUP_ITERS=""
 NUM_ITERATIONS=""
 SEED=""
-VOCAB_SIZE=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -126,11 +126,11 @@ while [[ $# -gt 0 ]]; do
     --hidden-size) HIDDEN_SIZE="${2:-}"; shift 2 ;;
     --num-layers) NUM_LAYERS="${2:-}"; shift 2 ;;
     --num-heads) NUM_HEADS="${2:-}"; shift 2 ;;
+    --vocab-size) VOCAB_SIZE="${2:-}"; shift 2 ;;
     --batch-size) BATCH_SIZE="${2:-}"; shift 2 ;;
     --warmup-iters) WARMUP_ITERS="${2:-}"; shift 2 ;;
     --num-iterations) NUM_ITERATIONS="${2:-}"; shift 2 ;;
     --seed) SEED="${2:-}"; shift 2 ;;
-    --vocab-size) VOCAB_SIZE="${2:-}"; shift 2 ;;
     --help|--specification|--matrix-definition) shift ;;
     *) die "Unknown option: $1" ;;
   esac
@@ -175,11 +175,11 @@ SEQUENCE_LEN="${SEQUENCE_LEN:-$(yaml_get sequence_len)}"
 HIDDEN_SIZE="${HIDDEN_SIZE:-$(yaml_get hidden_size)}"
 NUM_LAYERS="${NUM_LAYERS:-$(yaml_get num_layers)}"
 NUM_HEADS="${NUM_HEADS:-$(yaml_get num_heads)}"
+VOCAB_SIZE="${VOCAB_SIZE:-$(yaml_get vocab_size)}"
 BATCH_SIZE="${BATCH_SIZE:-$(yaml_get batch_size)}"
 WARMUP_ITERS="${WARMUP_ITERS:-$(yaml_get warmup_iters)}"
 NUM_ITERATIONS="${NUM_ITERATIONS:-$(yaml_get num_iterations)}"
 SEED="${SEED:-$(yaml_get seed)}"
-VOCAB_SIZE="${VOCAB_SIZE:-$(yaml_get vocab_size)}"
 OUTPUT_FORMAT="${OUTPUT_FORMAT:-$(yaml_get output_format)}"
 OUTPUT_FORMAT="${OUTPUT_FORMAT:-csv}"
 
@@ -191,11 +191,11 @@ BENCHMARK_RUN_COMMAND="bash run_benchmark.sh --${PROFILE}"
 [[ -n "${HIDDEN_SIZE}" ]] && BENCHMARK_RUN_COMMAND+=" --hidden-size $(printf %q "${HIDDEN_SIZE}")"
 [[ -n "${NUM_LAYERS}" ]] && BENCHMARK_RUN_COMMAND+=" --num-layers $(printf %q "${NUM_LAYERS}")"
 [[ -n "${NUM_HEADS}" ]] && BENCHMARK_RUN_COMMAND+=" --num-heads $(printf %q "${NUM_HEADS}")"
+[[ -n "${VOCAB_SIZE}" ]] && BENCHMARK_RUN_COMMAND+=" --vocab-size $(printf %q "${VOCAB_SIZE}")"
 [[ -n "${BATCH_SIZE}" ]] && BENCHMARK_RUN_COMMAND+=" --batch-size $(printf %q "${BATCH_SIZE}")"
 [[ -n "${WARMUP_ITERS}" ]] && BENCHMARK_RUN_COMMAND+=" --warmup-iters $(printf %q "${WARMUP_ITERS}")"
 [[ -n "${NUM_ITERATIONS}" ]] && BENCHMARK_RUN_COMMAND+=" --num-iterations $(printf %q "${NUM_ITERATIONS}")"
 [[ -n "${SEED}" ]] && BENCHMARK_RUN_COMMAND+=" --seed $(printf %q "${SEED}")"
-[[ -n "${VOCAB_SIZE}" ]] && BENCHMARK_RUN_COMMAND+=" --vocab-size $(printf %q "${VOCAB_SIZE}")"
 set_benchmark_run_command "${BENCHMARK_RUN_COMMAND}"
 
 HOSTNAME_VALUE="$(hostname -s 2>/dev/null || hostname)"
@@ -244,11 +244,11 @@ run_collection() {
   grep -q -- '--hidden-size' <<<"${help}" && collect_args+=(--hidden-size "${HIDDEN_SIZE}")
   grep -q -- '--num-layers' <<<"${help}" && collect_args+=(--num-layers "${NUM_LAYERS}")
   grep -q -- '--num-heads' <<<"${help}" && collect_args+=(--num-heads "${NUM_HEADS}")
+  grep -q -- '--vocab-size' <<<"${help}" && collect_args+=(--vocab-size "${VOCAB_SIZE}")
   grep -q -- '--batch-size' <<<"${help}" && collect_args+=(--batch-size "${BATCH_SIZE}")
   grep -q -- '--warmup-iters' <<<"${help}" && collect_args+=(--warmup-iters "${WARMUP_ITERS}")
   grep -q -- '--num-iterations' <<<"${help}" && collect_args+=(--num-iterations "${NUM_ITERATIONS}")
   grep -q -- '--seed' <<<"${help}" && collect_args+=(--seed "${SEED}")
-  grep -q -- '--vocab-size' <<<"${help}" && collect_args+=(--vocab-size "${VOCAB_SIZE}")
 
   printf -v collect_cmd '%q ' "${PYTHON_BIN}" scripts/collect_workload.py "${collect_args[@]}"
   echo "[RUN] ${collect_cmd}"
