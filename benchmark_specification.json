@@ -25,6 +25,11 @@
     "value": "gpu-bench-amd-jax-xla-forwardpass-ubu2604"
   },
   {
+    "field_name": "Repo Directory Name",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "326-gpu-bench-amd-jax-xla-forwardpass-ubu2604"
+  },
+  {
     "field_name": "Main Goal",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "Measure JAX/XLA transformer forward-pass performance"
