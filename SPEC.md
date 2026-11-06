@@ -17,7 +17,7 @@ Runs gpu-bench-jax-xla-forwardpass.py (the same script as 226/426): a small JAX/
 | vocab_size | `--vocab-size` | smoke=32000, baseline=32000, extended=32000 | 32000 | From Parameter list; see Execution Description With Parameters. |
 | batch_size | `--batch-size` | smoke=1, baseline=8, extended=8 | 8 | From Parameter list; see Execution Description With Parameters. |
 | warmup_iters | `--warmup-iters` | smoke=1, baseline=3, extended=5 | 3 | From Parameter list; see Execution Description With Parameters. |
-| num_iterations | `--num-iterations` | smoke=3, baseline=2630000, extended=7180000 | 2630000 | From Parameter list; see Execution Description With Parameters. |
+| num_iterations | `--num-iterations` | smoke=3, baseline=190000, extended=390000 | 190000 | From Parameter list; see Execution Description With Parameters. |
 | seed | `--seed` | smoke=42, baseline=42, extended=42 | 42 | From Parameter list; see Execution Description With Parameters. |
 
 ## Invocation

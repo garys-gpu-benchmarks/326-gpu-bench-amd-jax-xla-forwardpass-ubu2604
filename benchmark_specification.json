@@ -140,21 +140,6 @@
     "value": "-"
   },
   {
-    "field_name": "run_benchmark Command Plus Options for Smoke Run (One minute or less)",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "bash run_benchmark.sh --smoke --validate --device-id 0 --dtype FP16 --sequence-len 16 --hidden-size 64 --num-layers 1 --num-heads 4 --vocab-size 32000 --batch-size 1 --warmup-iters 1 --num-iterations 3 --seed 42"
-  },
-  {
-    "field_name": "run_benchmark Command Plus Options for Baseline Run (3 to 5 minutes)",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "bash run_benchmark.sh --baseline --validate --device-id 0 --dtype BF16 --sequence-len 128 --hidden-size 512 --num-layers 4 --num-heads 8 --vocab-size 32000 --batch-size 8 --warmup-iters 3 --num-iterations 2630000 --seed 42"
-  },
-  {
-    "field_name": "run_benchmark Command Plus Options for Extended Run (8 to 15 minutes)",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "bash run_benchmark.sh --extended --validate --device-id 0 --dtype FP32 --sequence-len 128 --hidden-size 512 --num-layers 4 --num-heads 8 --vocab-size 32000 --batch-size 8 --warmup-iters 5 --num-iterations 7180000 --seed 42"
-  },
-  {
     "field_name": "Validation Objective",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "Validates JAX JIT compile time and forward-pass latency, throughput, and TFLOPS on the synthetic transformer"
@@ -163,6 +148,21 @@
     "field_name": "Command Tools Executed",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "Run gpu-bench-jax-xla-forwardpass.py via collect_jax_xla.py"
+  },
+  {
+    "field_name": "run_benchmark Command Plus Options for Smoke Run (One minute or less)",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "bash run_benchmark.sh --smoke --validate --device-id 0 --dtype FP16 --sequence-len 16 --hidden-size 64 --num-layers 1 --num-heads 4 --vocab-size 32000 --batch-size 1 --warmup-iters 1 --num-iterations 3 --seed 42"
+  },
+  {
+    "field_name": "run_benchmark Command Plus Options for Baseline Run (3 to 5 minutes)",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "bash run_benchmark.sh --baseline --validate --device-id 0 --dtype BF16 --sequence-len 128 --hidden-size 512 --num-layers 4 --num-heads 8 --vocab-size 32000 --batch-size 8 --warmup-iters 3 --num-iterations 190000 --seed 42"
+  },
+  {
+    "field_name": "run_benchmark Command Plus Options for Extended Run (8 to 15 minutes)",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "bash run_benchmark.sh --extended --validate --device-id 0 --dtype FP32 --sequence-len 128 --hidden-size 512 --num-layers 4 --num-heads 8 --vocab-size 32000 --batch-size 8 --warmup-iters 5 --num-iterations 390000 --seed 42"
   },
   {
     "field_name": "Command Execution Details and Purpose",
@@ -412,7 +412,7 @@
   {
     "field_name": "Profile Parameter Values",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Parameters_SmokeBaselineExtend",
-    "value": "{\"device_id\": {\"smoke\": \"0\", \"baseline\": \"0\", \"extended\": \"0\", \"notes\": \"\"}, \"dtype\": {\"smoke\": \"FP16\", \"baseline\": \"BF16\", \"extended\": \"FP32\", \"notes\": \"\"}, \"sequence_len\": {\"smoke\": \"16\", \"baseline\": \"128\", \"extended\": \"128\", \"notes\": \"\"}, \"hidden_size\": {\"smoke\": \"64\", \"baseline\": \"512\", \"extended\": \"512\", \"notes\": \"\"}, \"num_layers\": {\"smoke\": \"1\", \"baseline\": \"4\", \"extended\": \"4\", \"notes\": \"\"}, \"num_heads\": {\"smoke\": \"4\", \"baseline\": \"8\", \"extended\": \"8\", \"notes\": \"\"}, \"vocab_size\": {\"smoke\": \"32000\", \"baseline\": \"32000\", \"extended\": \"32000\", \"notes\": \"2026-10-01: added so 126/326 run the same 32000-token vocabulary as 226/426 (all four share gpu-bench-jax-xla-forwardpass.py).\"}, \"batch_size\": {\"smoke\": \"1\", \"baseline\": \"8\", \"extended\": \"8\", \"notes\": \"\"}, \"warmup_iters\": {\"smoke\": \"1\", \"baseline\": \"3\", \"extended\": \"5\", \"notes\": \"\"}, \"num_iterations\": {\"smoke\": \"3\", \"baseline\": \"2630000\", \"extended\": \"7180000\", \"notes\": \"2026-09-06: AMD Ubuntu 26.04 sibling of 126. Same standardized num_iterations baseline=1880000/extended=5400000.\"}, \"seed\": {\"smoke\": \"42\", \"baseline\": \"42\", \"extended\": \"42\", \"notes\": \"\"}}"
+    "value": "{\"device_id\": {\"smoke\": \"0\", \"baseline\": \"0\", \"extended\": \"0\"}, \"dtype\": {\"smoke\": \"FP16\", \"baseline\": \"BF16\", \"extended\": \"FP32\"}, \"sequence_len\": {\"smoke\": \"16\", \"baseline\": \"128\", \"extended\": \"128\"}, \"hidden_size\": {\"smoke\": \"64\", \"baseline\": \"512\", \"extended\": \"512\"}, \"num_layers\": {\"smoke\": \"1\", \"baseline\": \"4\", \"extended\": \"4\"}, \"num_heads\": {\"smoke\": \"4\", \"baseline\": \"8\", \"extended\": \"8\"}, \"vocab_size\": {\"smoke\": \"32000\", \"baseline\": \"32000\", \"extended\": \"32000\"}, \"batch_size\": {\"smoke\": \"1\", \"baseline\": \"8\", \"extended\": \"8\"}, \"warmup_iters\": {\"smoke\": \"1\", \"baseline\": \"3\", \"extended\": \"5\"}, \"num_iterations\": {\"smoke\": \"3\", \"baseline\": \"190000\", \"extended\": \"390000\"}, \"seed\": {\"smoke\": \"42\", \"baseline\": \"42\", \"extended\": \"42\"}}"
   },
   {
     "field_name": "Profile Command Authorship",

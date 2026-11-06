@@ -31,7 +31,7 @@ bash run_benchmark.sh --smoke
 | `vocab_size` | `--vocab-size` | 32000 | 32000 | 32000 |
 | `batch_size` | `--batch-size` | 1 | 8 | 8 |
 | `warmup_iters` | `--warmup-iters` | 1 | 3 | 5 |
-| `num_iterations` | `--num-iterations` | 3 | 2630000 | 7180000 |
+| `num_iterations` | `--num-iterations` | 3 | 190000 | 390000 |
 | `seed` | `--seed` | 42 | 42 | 42 |
 
 Pick a profile with `--smoke` (default), `--baseline` or `--extended`. Any flag in the table overrides that profile's value:
@@ -63,7 +63,7 @@ Profile values live in `config/benchmark_config.yaml`.
 
 | Path | Contents |
 |---|---|
-| `results/raw/<timestamp>_<repo>_<host>/` | Raw tool output, `metrics_summary.txt`, and `hardware_info.txt`, `software_info.txt`, `errors_info.txt` |
+| `results/raw/YYYYMMDD_HHMMSSZ_WORKLOAD-<NNN>_SYSTEM-<hostname>/` | Raw tool output, `metrics_summary.txt`, and `hardware_info.txt`, `software_info.txt`, `errors_info.txt` |
 | `results/benchmark.db` | SQLite history of every run |
 | `results/summary.json` | Metrics from the most recent run |
 | `/var/opt/benchmarks/runtime_ledger.csv` | One row per run, shared by every workload on the host |
