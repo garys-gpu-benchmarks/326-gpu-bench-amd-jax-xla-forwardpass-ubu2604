@@ -30,15 +30,26 @@ Profiles (default: --smoke):
 
 Parameters (override the profile's value):
   --device-id <value>           Target accelerator or device identifier (smoke/baseline/extended: 0)
-  --dtype <value>               Tensor, element, or storage data type (smoke FP16, baseline BF16, extended FP32)
-  --sequence-len <n>            Total input sequence or context length (smoke 16, baseline 128, extended 128)
+  --dtype <value>               Tensor, element, or storage data type
+                                  smoke:    FP16
+                                  baseline: BF16
+                                  extended: FP32
+  --sequence-len <n>            Total input sequence or context length
+                                  smoke:             16
+                                  baseline/extended: 128
   --hidden-size <value>         Shared workload parameter (smoke 64, baseline 512, extended 512)
   --num-layers <value>          Shared workload parameter (smoke 1, baseline 4, extended 4)
   --num-heads <value>           Shared workload parameter (smoke 4, baseline 8, extended 8)
   --vocab-size <value>          Shared workload parameter (smoke/baseline/extended: 32000)
   --batch-size <n>              Number of items processed together (smoke 1, baseline 8, extended 8)
-  --warmup-iters <n>            Untimed warm-up repetitions before measurement (smoke 1, baseline 3, extended 5)
-  --num-iterations <n>          Number of timed repetitions (smoke 3, baseline 190000, extended 390000)
+  --warmup-iters <n>            Untimed warm-up repetitions before measurement
+                                  smoke:    1
+                                  baseline: 3
+                                  extended: 5
+  --num-iterations <n>          Number of timed repetitions
+                                  smoke:    3
+                                  baseline: 190000
+                                  extended: 390000
   --seed <n>                    Random seed used for reproducibility (smoke/baseline/extended: 42)
 
 General options:
