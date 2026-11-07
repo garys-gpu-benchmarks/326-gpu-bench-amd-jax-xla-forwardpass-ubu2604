@@ -16,12 +16,11 @@ capture_benchmark_run_command_submitted "$@"
 
 usage() {
   cat <<'USAGE'
+
 Usage: bash run_benchmark.sh [OPTIONS]
 
 Workload Name:          JAX XLA Transformer Forward Pass.
 Main Goal:              Measure JAX/XLA transformer forward-pass performance.
-Validation Objective:   Validates JAX JIT compile time and forward-pass latency, throughput, and
-                        TFLOPS on the synthetic transformer.
 Command Tools Executed: Run gpu-bench-jax-xla-forwardpass.py via collect_jax_xla.py.
 
 Profiles (default: --smoke):
