@@ -205,14 +205,14 @@
     "value": "MI300X"
   },
   {
-    "field_name": "Raw Output Format",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "raw_results.csv with pass1, pass2, and summary, plus the two JAX transcripts in raw_output.txt"
-  },
-  {
     "field_name": "Primary Record Granularity",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "one row per timed pass and one summary row"
+  },
+  {
+    "field_name": "Raw Output Format",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "raw_results.csv with pass1, pass2, and summary, plus the two JAX transcripts in raw_output.txt"
   },
   {
     "field_name": "Raw Output Example",
@@ -225,14 +225,14 @@
     "value": "forward_latency_msec, tokens_per_sec, tflops, jit_compile_msec, peak_hbm_gb"
   },
   {
-    "field_name": "Success Criteria",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "status=ok and every metric is a finite number; peak_hbm_gb may instead be na (peak memory not reported)"
-  },
-  {
     "field_name": "Parser and Normalization Notes",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "tokens_per_sec = batch_size x sequence_len / forward-pass time. tflops counts every matmul: per layer 8bsh^2 (Q/K/V/O) + 4bs^2h (attention) + 8bsh^2 (MLP), plus 2bsh x vocab for the output projection. peak_hbm_gb is JAX peak_bytes_in_use, else used VRAM from nvidia-smi or amd-smi, else na (peak memory not reported)"
+  },
+  {
+    "field_name": "Success Criteria",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "status=ok and every metric is a finite number; peak_hbm_gb may instead be na (peak memory not reported)"
   },
   {
     "field_name": "Hardware Config",

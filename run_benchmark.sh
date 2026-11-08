@@ -19,9 +19,9 @@ usage() {
 
 Usage: bash run_benchmark.sh [OPTIONS]
 
-Workload Name:          JAX XLA Transformer Forward Pass.
-Main Goal:              Measure JAX/XLA transformer forward-pass performance.
-Command Tools Executed: Run gpu-bench-jax-xla-forwardpass.py via collect_jax_xla.py.
+Workload Name:          JAX XLA Transformer Forward Pass
+Main Goal:              Measure JAX/XLA transformer forward-pass performance
+Command Tools Executed: Run gpu-bench-jax-xla-forwardpass.py via collect_jax_xla.py
 
 Profiles (default: --smoke):
   --smoke                       Run smoke profile
