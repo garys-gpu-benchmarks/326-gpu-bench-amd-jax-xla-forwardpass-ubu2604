@@ -40,6 +40,11 @@
     "value": "Run gpu-bench-jax-xla-forwardpass.py via collect_jax_xla.py"
   },
   {
+    "field_name": "Execution Description With Parameters",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "Runs gpu-bench-jax-xla-forwardpass.py (the same script as 226/426): a small JAX/XLA transformer forward pass on synthetic tokens. dtype, sequence_len, hidden_size, num_layers, num_heads, batch_size, warmup_iters, num_iterations, seed, and vocab_size (32000, as 226/426) come from yaml. The collector runs two passes plus a summary row. output_format: csv"
+  },
+  {
     "field_name": "Metrics",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "#1: Forward-pass latency, ms (forward_latency_msec); #2: Throughput, tokens/s (tokens_per_sec); #3: Modeled TFLOPS, full forward pass (tflops); #4: XLA compilation time, ms (jit_compile_msec); #5: Peak HBM, GB (peak_hbm_gb)"
@@ -173,11 +178,6 @@
     "field_name": "Command Methodology",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "Compile and run a JAX JIT + XLA transformer forward pass on synthetic tokens (token embedding; per layer Q/K/V/O projections, softmax attention, and a GELU MLP; output projection to the vocabulary). Each timed chunk size is compiled before timing. Two invocations are parsed from RESULT lines and averaged in a summary row"
-  },
-  {
-    "field_name": "Execution Description With Parameters",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Runs gpu-bench-jax-xla-forwardpass.py (the same script as 226/426): a small JAX/XLA transformer forward pass on synthetic tokens. dtype, sequence_len, hidden_size, num_layers, num_heads, batch_size, warmup_iters, num_iterations, seed, and vocab_size (32000, as 226/426) come from yaml. The collector runs two passes plus a summary row. output_format: csv"
   },
   {
     "field_name": "Execution Domain",
